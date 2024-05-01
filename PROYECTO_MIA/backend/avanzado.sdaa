@@ -1,0 +1,33 @@
+#ENTRADA SEGUNDA PARTE MIA
+#Seccion B - DANIEL CHICAS
+#1S 2024
+
+#CREACION DE DISCOS------------------------------------------------
+Mkdisk -size=20 -unit=m
+Mkdisk -size=20 -unit=m
+
+#CREACION DE PARTICION------------------------------------------------
+fdisk -type=P -unit=K -name=Part1 -size=7680 -driveletter=A -fit=BF
+fdisk -type=P -unit=K -name=Part1 -size=7680 -driveletter=B -fit=BF
+
+#MOUNT------------------------------------------------
+mount -driveletter=A -name=Part1
+mount -driveletter=B -name=Part1
+
+#CREACION DE SISTEMA DE ARCHIVOS------------------------------------------------
+mkfs -type=full -id=A003 -fs=2fs
+mkfs -type=full -id=B003 -fs=3fs
+
+#------------------------REPORTES 1----------------
+rep -id=A003 -path=reporte1_sb.jpg -name=sb
+rep -id=A003 -path=reporte1_tree.jpg -name=tree
+
+pause
+mkdisk -param=x
+
+#LOGIN------------------------------------------------
+login -user=root -pass=123 -id=A003
+login -user=root -pass=123 -id=A003
+
+pause
+mkdisk -param=x
